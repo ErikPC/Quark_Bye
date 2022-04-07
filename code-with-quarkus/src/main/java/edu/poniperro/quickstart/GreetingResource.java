@@ -9,9 +9,12 @@ import javax.ws.rs.core.MediaType;
 public class GreetingResource {
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_HTML)
     public String hello() {
-        return "Adios mundo cruel Jorge te quiero";
+        return "<img src='https://images.vexels.com/media/users/3/150997/isolated/preview/76d7b2457f16f4aa11b77d8926e48ff8-bandera-del-corazon-gay-by-vexels.png' width=15%>"
+                +
+                "<h1>Jorge guapo</h1>" +
+                "<h2>Chema tu tambien</h2>";
     }
 
 }
