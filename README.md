@@ -89,6 +89,15 @@ greetings.inicio=<img src='https://external-content.duckduckgo.com/iu/?u=https%3
 
 _Ya se que es una porqueria pero me hacia ilu_ 👉👈
 
+Ahora vamos al codigo y añadimos el siguiente codigo
+
+```Java
+    @ConfigProperty(name = "greetings.inicio")
+    String msg;
+```
+
+Ahora solo tenemos que cambiar el return y poner que devuelve `msg`.
+
 ---
 
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
