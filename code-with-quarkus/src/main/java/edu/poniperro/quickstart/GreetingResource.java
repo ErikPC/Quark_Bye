@@ -11,10 +11,10 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public String hello() {
-        return "<img src='https://images.vexels.com/media/users/3/150997/isolated/preview/76d7b2457f16f4aa11b77d8926e48ff8-bandera-del-corazon-gay-by-vexels.png' width=15%>"
+        return "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2img.net%2Fh%2F24.media.tumblr.com%2Ftumblr_lmjqalqtmX1qah4nko1_500.gif&f=1&nofb=1'%>"
                 +
-                "<h1>Jorge guapo</h1>" +
-                "<h2>Chema tu tambien</h2>";
+                "<h1>Bienvenido</h1>" +
+                "<h2>Informo que va a estar poblado de cosas de One Piece</h2>";
     }
 
 }
