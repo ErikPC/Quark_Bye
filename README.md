@@ -108,6 +108,19 @@ Para compilar de forma nativa vamos a hacerlo en un Docker con el siguiente coma
 $ ./mvnw package -Pnative -Dnative-image.docker-build=true -DskipTests
 ```
 
+Ahora tenemos un binario que solo va a funcionar en un contenedor docker.
+Asi que creamos el docker con el siguiente comando:
+
+```bash
+$ docker build -f src/main/docker/Dockerfile.native -t quakus/gettingstarted .
+```
+
+y podemos lanzarlos con:
+
+```bash
+$ docker run -i --rm -op 8080:8080 quarkus/getting-started
+```
+
 ---
 
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
