@@ -121,9 +121,13 @@ y podemos lanzarlos con:
 $ docker run -i --rm -op 8080:8080 quarkus/getting-started
 ```
 
+Con esto veremos que cuando compila en nativo la velocidad de arrancada es muy rapida , pero como vamos a estar compilando bastantes veces ya que de momento no tenemos una app definitiva
+
 ---
 
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
+
+Todos los pasos seguidos se han hecho en el curso y aqui me lo estoy documentando para un futurno no muy lejano cuando me olvide de como se hacia algo y porque más o menos.
 
 De momento es un hello world con pruebas , espero que poco a poco pueda cambiar el README para que sea un mono tecleando algo que entiende.
 
