@@ -91,6 +91,8 @@ _Ya se que es una porqueria pero me hacia ilu_ 👉👈
 
 Ahora vamos al codigo y añadimos el siguiente codigo
 
+De esta manera no es un return estatico , sino lo que esta configurado en `./code-with-quarkus/src/main/resources/application.properties`
+
 ```Java
     @ConfigProperty(name = "greetings.inicio")
     String msg;
@@ -98,8 +100,20 @@ Ahora vamos al codigo y añadimos el siguiente codigo
 
 Ahora solo tenemos que cambiar el return y poner que devuelve `msg`.
 
+## Compilar de forma nativa
+
+Para compilar de forma nativa vamos a hacerlo en un Docker con el siguiente comando:
+
+```bash
+$ ./mvnw package -Pnative -Dnative-image.docker-build=true -DskipTests
+```
+
 ---
 
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
 
 De momento es un hello world con pruebas , espero que poco a poco pueda cambiar el README para que sea un mono tecleando algo que entiende.
+
+El nombre de Quarkus me recuerda a la onomatopeya de un pato "cuak", asi que si que aqui os dejo a mi "cuakus"
+
+<img src="./docs/Quarkus.png">
