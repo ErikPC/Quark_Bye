@@ -36,7 +36,7 @@ Para comprobar que funciona usamos:
 $ curl localhost:8080/bye
 ```
 
-En el caso que no develva nada deberiamos comprobar que el path se ha creado como esperabamos, se encuentra en ./code-with-quarkus/src/java/edu/poniperro/quickstart/GreetingResource.java
+En el caso que no develva nada deberiamos comprobar que el path se ha creado como esperabamos, se encuentra en `./code-with-quarkus/src/java/edu/poniperro/quickstart/GreetingResource.java`
 
 Estara entre parentesis en un @Path , como es de suponer , ahi defines el path. En el caso de que no ponga "/bye" es por eso que no os funciona.
 
@@ -76,6 +76,18 @@ public class GreetingResource {
 Por arte de magia funciona
 
 <img src="./docs/quarkus_hello_wordl_html.PNG">
+
+## Parametros configuracion
+
+Por defecto cuarkus lee la configuracion en el fichero application.properties, que se encuentra en `./code-with-quarkus/src/main/resources/application.properties`
+
+añadimos una linea con para definir un parametro que en mi caso , como quiero que se vea lo de siempre es meter todo el return sin comillas en una sola linea.
+
+```Java
+greetings.inicio=<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2img.net%2Fh%2F24.media.tumblr.com%2Ftumblr_lmjqalqtmX1qah4nko1_500.gif&f=1&nofb=1'%>"<h1>Bienvenido</h1><h2>Informo que va a estar poblado de cosas de One Piece</h2>
+```
+
+_Ya se que es una porqueria pero me hacia ilu_ 👉👈
 
 ---
 
