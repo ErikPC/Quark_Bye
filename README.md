@@ -25,7 +25,7 @@ $ mvn io.quarkusplatform:quarkus-maven-plugin:2.7.5.Final:create \
 Ahora se generara la aplicacion y para lanzar nuestra aplicacion en modo dev. El modo dev lo que hace es que no hay necesidad de compilar cada vez que hagamos un cambio , hará restart de una forma bastante rapida.
 
 ```bash
-$ mvn compile quarkus dev
+$ ./mvnw compile quarkus:dev
 ```
 
 La aplicacion estara corriendo en el localhost:8080
