@@ -123,6 +123,12 @@ $ docker run -i --rm -op 8080:8080 quarkus/getting-started
 
 Con esto veremos que cuando compila en nativo la velocidad de arrancada es muy rapida , pero como vamos a estar compilando bastantes veces ya que de momento no tenemos una app definitiva
 
+### Resumen de compilacion nativa
+
+Users de Windows : Teneis problemas. Teneis que seguir esta [guia](https://quarkus.io/guides/building-native-image)
+
+Users de Linux: Aun no he probado. Se supone que no tendreis problemas.
+
 ---
 
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
