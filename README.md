@@ -129,11 +129,41 @@ Users de Windows : Teneis problemas. Teneis que seguir esta [guia](https://quark
 
 Users de Linux: Aun no he probado. Se supone que no tendreis problemas.
 
+## Sobreescribir configuracion
+
+Podemos sobreescribir los `greetings` de la siguiente manera:
+
+```bash
+$ ./mvnw compile quarkus:dev -Dgreetings.inicio="One piece"
+```
+
+Podremos comprobar que se ha cambiado con un curl:
+
+```bash
+$ curl localhost:8080/bye
+```
+
+Si podemos sobreescribir con texto plano vamos a comprobar si le metemos codigo HTML, ya que nosotros tenemos el return con `MediaType.TEXT_HTML`
+
+```bash
+$ ./mvnw compile quarkus:dev -Dgreetings.inicio="<img src='https://c.tenor.com/KqDRtisiLnsAAAAC/yamato-one-piece-yamato.gif'/>"
+```
+
+Parece ser que si funciona y este es el resultado
+
+<img src="./docs/quakus_cambio_parametro.PNG">
+
+Recuerdo que al lanzarlo desde consola de esa manera el cambio solo estara mientras Quarkus este funcionando , ya que si la apagamos, dejara de estar a no ser que volvamos a lanzar quarkus volviendo a sustituir el parametro.
+
+NOTA: Si usamos `s` en la consola de Quarkus para forzar un reinicio no desaparece. Porque se queda el parametro guardado.
+
 ---
 
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
 
-Todos los pasos seguidos se han hecho en el curso y aqui me lo estoy documentando para un futurno no muy lejano cuando me olvide de como se hacia algo y porque más o menos.
+Todos los pasos seguidos se han tomado como referencia del curso y aqui me lo estoy documentando para un futurno no muy lejano cuando me olvide de como se hacia algo y porque más o menos.
+
+Recomiendo encarecidamente el curso asi que si podeis pasaros lo disfrutareis.
 
 De momento es un hello world con pruebas , espero que poco a poco pueda cambiar el README para que sea un mono tecleando algo que entiende.
 
