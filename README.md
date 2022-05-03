@@ -157,6 +157,25 @@ Recuerdo que al lanzarlo desde consola de esa manera el cambio solo estara mient
 
 NOTA: Si usamos `s` en la consola de Quarkus para forzar un reinicio no desaparece. Porque se queda el parametro guardado.
 
+## Perfiles de Configuración
+
+Podemos establecer que en el modo dev los parametros sean distintos que cuando compilemos a un -jar.
+
+Para hacer esto volvemos a `application properties`, y en mi caso como quiero cambiar el gif de salida en modo dev, dejo el fichero de la siguiente manera:
+
+```conf
+# Configuracion de perfiles
+
+# Configuracion perfil dev
+
+%dev.greetings.inicio=<img src='https://files.passeidireto.com/44f82218-b512-4f51-9329-f35caa1f76fd/44f82218-b512-4f51-9329-f35caa1f76fd.gif'>
+
+
+greetings.inicio=<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2img.net%2Fh%2F24.media.tumblr.com%2Ftumblr_lmjqalqtmX1qah4nko1_500.gif&f=1&nofb=1'%><h1>Bienvenido</h1><h2>Informo que va a estar poblado de cosas de One Piece</h2>
+```
+
+De forma que cuando lancemos la aplicacion en forma de dev saldra cambiado lo especificado en el perfil de %dev.
+
 ---
 
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
