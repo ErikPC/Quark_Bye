@@ -176,6 +176,29 @@ greetings.inicio=<img src='https://external-content.duckduckgo.com/iu/?u=https%3
 
 De forma que cuando lancemos la aplicacion en forma de dev saldra cambiado lo especificado en el perfil de %dev.
 
+## Customizar perfiles
+
+Vamos a añadir un perfil llamado "onepiece" (esto es para que se vea que se puede poner cualquier nombre).
+
+Abrimos el ficher donde pusimos la configuracion de perfiles la ultima vez y añadimos estas lineas de código
+
+```conf
+
+# Configuracion de perfil personalizado
+
+%onepiece.greetings.inicio=<img src='https://media2.giphy.com/media/13SYnseWRwRSc8/giphy.gif?cid=790b7611a0914d5180dcefa1cd68d20a85287a04b5fcd56a&rid=giphy.gif&ct=g'><h1>Bienvenido</h1><h2>En este momento estas cargando el perfil 'onepiece'</h2>
+```
+
+Ahora tenemos creado el perfil onepiece con esta configuracion , ahora para cargar este perfil en el lanzamiento de la aplicacion hay que hacer lo siguiente:
+
+```bash
+$ ./mvnw compile quarkus:dev -Dquarkus-profile=onepiece
+```
+
+De forma que cambiará y se verá asi:
+
+<img src="./docs/carga_perfil_onepiece.PNG">
+
 ---
 
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
