@@ -199,7 +199,101 @@ De forma que cambiará y se verá asi:
 
 <img src="./docs/carga_perfil_onepiece.PNG">
 
----
+## Cargar configuracion otro fichero
+
+Creamos una clase nueva , yo la voy a crear en `edu.poniperro.quickstart` , le llamaré "InMemoryConfigSource" y va a implementar la interfaz `ConfigSource`.
+
+```Java
+public class InMemoryConfigSource implements ConfigSource
+```
+
+Asi que meteremos lo metodos que tenemos que implementar. Le creamos atributo que es un Map que va a contener los valores. Como tenemos los valores predefinidos, vamos a crear un constructor que va a meter los valores al Map.
+
+```Java
+    private Map<String, String> properties = new HashMap<>();
+
+    public InMemoryConfigSource() {
+        this.properties.put("greetings.inicio",
+                "<img src='https://c.tenor.com/fk77xC7Ds8IAAAAd/yamato-yamato-one-piece.gif'><h1>Bienvenido</h1><h2>En este momento estas cargando un fichero en memoria de configuracion.</h2>");
+    }
+```
+
+Vamos a hacer los metodos
+
+```Java
+    @Override
+    public String getName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Set<String> getPropertyNames() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String getValue(String arg0) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+```
+
+El primero que aparece es getName , que es simplemente un nombre , ponemos el nombre que queramos en String.
+
+```Java
+    @Override
+    public String getName() {
+        // TODO Auto-generated method stub
+        return "Configuracion en memoria";
+    }
+```
+
+El segundo es getProperties , que devuelve los nombres de las propiedades cargadas.
+
+```Java
+    @Override
+    public Set<String> getPropertyNames() {
+        return this.properties.keySet();
+    }
+```
+
+El tercero es getValue(String arg0) que nos pasaran un argumento para sacar el valor de esa key.
+
+```Java
+    @Override
+    public String getValue(String arg0) {
+        return this.properties.get(arg0);
+    }
+```
+
+Ahora vamos a sobre escribir el getOrdinal que es para dar prioridad de carga a los valores.
+
+```Java
+    @Override
+    public int getOrdinal() {
+        return 999;
+    }
+```
+
+Ahora hay que registrar este fichero de configuracion. Para ello hay que crear un fichero en META-INF que se llame services y dentro otro que se llame como todo el paquete de la interfaz que aplicamos que es ConfigSource. Dentro del fichero metemos el package y nombre de la clase que hemos creado.
+
+`code-with-quarkus\src\main\resources\META-INF\services\org.eclipse.microprofile.config.spi.ConfigSource`
+
+```
+edu.poniperro.quickstart.InMemoryConfigSource
+```
+
+Ahora podemos iniciar quarkus:
+
+```bash
+$ ./mvnw quarkus:dev
+```
+
+Y podemos ver que ha cargado la configuracion de memoria.
+
+<img src="./docs/carga_memoria.PNG">
 
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
 
