@@ -27,14 +27,16 @@ public class DevilFruits {
     }
 
     @POST
-    public Set<DevilFruit> add(DevilFruit fruit) {
+    @Path("")
+    public Set<DevilFruit> add(String name, String type) {
+        DevilFruit fruit = new DevilFruit(name, type);
         fruits.add(fruit);
         return fruits;
     }
 
     @DELETE
     public Set<DevilFruit> delete(DevilFruit fruit) {
-        fruits.removeIf(f -> f.name.contentEquals(fruit.name));
+        fruits.removeIf(f -> f.Name.contentEquals(fruit.Name));
         return fruits;
     }
 }
