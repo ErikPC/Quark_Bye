@@ -4,10 +4,13 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import edu.poniperro.quickstart.model.DevilFruit;
 
@@ -27,16 +30,16 @@ public class DevilFruits {
     }
 
     @POST
-    @Path("")
-    public Set<DevilFruit> add(String name, String type) {
-        DevilFruit fruit = new DevilFruit(name, type);
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Set<DevilFruit> add(DevilFruit fruit) {
         fruits.add(fruit);
+        System.out.println(fruit);
         return fruits;
     }
 
     @DELETE
     public Set<DevilFruit> delete(DevilFruit fruit) {
-        fruits.removeIf(f -> f.Name.contentEquals(fruit.Name));
+        fruits.removeIf(f -> f.name.contentEquals(fruit.name));
         return fruits;
     }
 }
