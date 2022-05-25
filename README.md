@@ -295,6 +295,84 @@ Y podemos ver que ha cargado la configuracion de memoria.
 
 <img src="./docs/carga_memoria.PNG">
 
+## Realizar un POST
+
+Vamos a realizarun post, basandome en una plantilla de la doc de quakus.
+Para ello creo una carpeta que se llama model, donde se va a crear una clase java que va a ser la modelo para pasarla a JSON.
+
+La clase modelo ha quedado asi:
+
+```Java
+package edu.poniperro.quickstart.model;
+
+public class DevilFruit {
+
+    public String name;
+    public String type;
+
+    public DevilFruit() {
+    }
+
+    public DevilFruit(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
+}
+```
+
+Una vez creado el modelo creo una clase para tener el path. Definimos El GET , POST y DELETE.
+El GET , es relativamente igual que el otro. EL POST , definimos que será un JSON_type.
+EL DELETE aparecerá aquí pero no se explicará hasta mas tarde.
+
+Una vez comentado lo anterior, la clase del path nos quedaría tal que así:
+
+```Java
+package edu.poniperro.quickstart;
+
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Set;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
+
+import edu.poniperro.quickstart.model.DevilFruit;
+
+@Path("/fruits")
+public class DevilFruits {
+
+    private Set<DevilFruit> fruits = Collections.newSetFromMap(Collections.synchronizedMap(new LinkedHashMap<>()));
+
+    public DevilFruits() {
+        fruits.add(new DevilFruit("Gomu-Gomu", "Paramecia"));
+        fruits.add(new DevilFruit("Yami-Yami", "Logia"));
+    }
+
+    @GET
+    public Set<DevilFruit> list() {
+        return fruits;
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Set<DevilFruit> add(DevilFruit fruit) {
+        fruits.add(fruit);
+        System.out.println(fruit);
+        return fruits;
+    }
+
+    @DELETE
+    public Set<DevilFruit> delete(DevilFruit fruit) {
+        fruits.removeIf(f -> f.name.contentEquals(fruit.name));
+        return fruits;
+    }
+}
+```
+
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
 
 Todos los pasos seguidos se han tomado como referencia del curso y aqui me lo estoy documentando para un futurno no muy lejano cuando me olvide de como se hacia algo y porque más o menos.
