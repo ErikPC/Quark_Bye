@@ -391,6 +391,24 @@ Despues del post se debería ver algo así:
 
 <img src="./docs/despuest_post.PNG"/>
 
+## Meter DELETE
+
+En la clase del path comentada anteriormente esta añadido el DELETE, solo hay que añadir que recibe JSON para hacer el DELETE. De forma que la funcion del DELETE te quede así:
+
+```Java
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Set<DevilFruit> delete(DevilFruit fruit) {
+        fruits.removeIf(f -> f.name.contentEquals(fruit.name));
+        return fruits;
+    }
+}
+```
+
+### Testear DELETE con Postman.
+
+Sigue el inicio del anterior , lo que cambiaras el POST por el DELETE, siguiendo el mismo formato , en caso. Ten en cuenta que tendras que eliminar una fruta que exista para ver si funciona.
+
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
 
 Todos los pasos seguidos se han tomado como referencia del curso y aqui me lo estoy documentando para un futurno no muy lejano cuando me olvide de como se hacia algo y porque más o menos.
