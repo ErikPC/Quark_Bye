@@ -379,17 +379,17 @@ Descargamos Postman y lo abrimos, le damos a new HTTP Request.
 Nos saldrá un desplegable y seleccionamos el POST.Cuando estemos en el POST vamos a body, seleccionamos raw , cambiamos text por JSON. Abajo escribiremos el JSON que vamos a insertar , que debe seguir el criterio de las "DevilFruits"
 
 Deberia quedar así:
-<img src="./docs/postman.png"/>
+<img src="./docs/postman.PNG"/>
 
 Pondriamos arriba la direccion , en mi caso `http://localhost:8080/fruits`
 
 Antes del post, si en el navegador ponemos la direccion se vería algo así:
 
-<img src="./docs/antes_post.png"/>
+<img src="./docs/antes_post.PNG"/>
 
 Despues del post se debería ver algo así:
 
-<img src="./docs/despuest_post.png"/>
+<img src="./docs/despuest_post.PNG"/>
 
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
 
