@@ -37,6 +37,7 @@ public class DevilFruits {
     }
 
     @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
     public Set<DevilFruit> delete(DevilFruit fruit) {
         fruits.removeIf(f -> f.name.contentEquals(fruit.name));
         return fruits;
