@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 import edu.poniperro.quickstart.model.DevilFruit;
 
 @Path("/fruits")
-public class DevilFruits {
+public class DevilFruits implements DevilFruitService {
 
     private Set<DevilFruit> fruits = Collections.newSetFromMap(Collections.synchronizedMap(new LinkedHashMap<>()));
 
