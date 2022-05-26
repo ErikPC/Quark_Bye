@@ -409,6 +409,33 @@ En la clase del path comentada anteriormente esta añadido el DELETE, solo hay q
 
 Sigue el inicio del anterior , lo que cambiaras el POST por el DELETE, siguiendo el mismo formato , en caso. Ten en cuenta que tendras que eliminar una fruta que exista para ver si funciona.
 
+## Validacion de entrada
+
+Primero vamos a añadir en el pom.xml una nueva dependencia:
+
+```xml
+<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-hibernate-validator</artifactId>
+    <version>2.9.0.Final</version>
+</dependency>
+```
+
+Ahora en los atributos de la clase modelo podemos ponerle etiquetas. Por ejemplo en DevilFrit.java , en los atributos voy a poner que no puedan ser null. Tambien voy a añadir un nuevo atributo que se llamar berris , que sera el precio de la fruta con una etiqueta que no pueda ser menor que un precio. De forma que me quedaría asi la clase (tened en cuenta que al cambiarlo en los objetos que creabamos hay que añadirle el precio).
+
+```Java
+    @NotNull
+    public String name;
+
+    @NotNull
+    public String type;
+
+    @Min(200)
+    public int berris;
+```
+
+Con Postman, podemos hacer el POST para comprobar que funciona siguien los pasos del apartado `Comprobar POST con Postman`.
+
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
 
 Todos los pasos seguidos se han tomado como referencia del curso y aqui me lo estoy documentando para un futurno no muy lejano cuando me olvide de como se hacia algo y porque más o menos.
