@@ -1,4 +1,4 @@
-package edu.poniperro.quickstart;
+package edu.poniperro.quickstart.controller;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

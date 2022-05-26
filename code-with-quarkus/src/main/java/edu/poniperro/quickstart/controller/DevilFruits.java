@@ -1,4 +1,4 @@
-package edu.poniperro.quickstart;
+package edu.poniperro.quickstart.controller;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -20,8 +20,8 @@ public class DevilFruits {
     private Set<DevilFruit> fruits = Collections.newSetFromMap(Collections.synchronizedMap(new LinkedHashMap<>()));
 
     public DevilFruits() {
-        fruits.add(new DevilFruit("Gomu-Gomu", "Paramecia", 1000000000));
-        fruits.add(new DevilFruit("Yami-Yami", "Logia", 1000000000));
+        fruits.add(new DevilFruit("Gomu-Gomu", "Paramecia", 5000000));
+        fruits.add(new DevilFruit("Ope-Ope", "Paramecia", 5000000));
     }
 
     @GET
