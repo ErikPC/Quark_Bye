@@ -11,7 +11,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import edu.poniperro.quickstart.model.DevilFruit;
 
@@ -39,6 +38,7 @@ public class DevilFruits {
     }
 
     @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
     public Set<DevilFruit> delete(DevilFruit fruit) {
         fruits.removeIf(f -> f.name.contentEquals(fruit.name));
         return fruits;

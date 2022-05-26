@@ -295,6 +295,120 @@ Y podemos ver que ha cargado la configuracion de memoria.
 
 <img src="./docs/carga_memoria.PNG">
 
+## Realizar un POST
+
+Vamos a realizarun post, basandome en una plantilla de la doc de quakus.
+Para ello creo una carpeta que se llama model, donde se va a crear una clase java que va a ser la modelo para pasarla a JSON.
+
+La clase modelo ha quedado asi:
+
+```Java
+package edu.poniperro.quickstart.model;
+
+public class DevilFruit {
+
+    public String name;
+    public String type;
+
+    public DevilFruit() {
+    }
+
+    public DevilFruit(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
+}
+```
+
+Una vez creado el modelo creo una clase para tener el path. Definimos El GET , POST y DELETE.
+El GET , es relativamente igual que el otro. EL POST , definimos que será un JSON_type.
+EL DELETE aparecerá aquí pero no se explicará hasta mas tarde.
+
+Una vez comentado lo anterior, la clase del path nos quedaría tal que así:
+
+```Java
+package edu.poniperro.quickstart;
+
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Set;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
+
+import edu.poniperro.quickstart.model.DevilFruit;
+
+@Path("/fruits")
+public class DevilFruits {
+
+    private Set<DevilFruit> fruits = Collections.newSetFromMap(Collections.synchronizedMap(new LinkedHashMap<>()));
+
+    public DevilFruits() {
+        fruits.add(new DevilFruit("Gomu-Gomu", "Paramecia"));
+        fruits.add(new DevilFruit("Yami-Yami", "Logia"));
+    }
+
+    @GET
+    public Set<DevilFruit> list() {
+        return fruits;
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Set<DevilFruit> add(DevilFruit fruit) {
+        fruits.add(fruit);
+        System.out.println(fruit);
+        return fruits;
+    }
+
+    @DELETE
+    public Set<DevilFruit> delete(DevilFruit fruit) {
+        fruits.removeIf(f -> f.name.contentEquals(fruit.name));
+        return fruits;
+    }
+}
+```
+
+### Comprobar POST con Postman
+
+Descargamos Postman y lo abrimos, le damos a new HTTP Request.
+Nos saldrá un desplegable y seleccionamos el POST.Cuando estemos en el POST vamos a body, seleccionamos raw , cambiamos text por JSON. Abajo escribiremos el JSON que vamos a insertar , que debe seguir el criterio de las "DevilFruits"
+
+Deberia quedar así:
+<img src="./docs/postman.PNG"/>
+
+Pondriamos arriba la direccion , en mi caso `http://localhost:8080/fruits`
+
+Antes del post, si en el navegador ponemos la direccion se vería algo así:
+
+<img src="./docs/antes_post.PNG"/>
+
+Despues del post se debería ver algo así:
+
+<img src="./docs/despuest_post.PNG"/>
+
+## Meter DELETE
+
+En la clase del path comentada anteriormente esta añadido el DELETE, solo hay que añadir que recibe JSON para hacer el DELETE. De forma que la funcion del DELETE te quede así:
+
+```Java
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Set<DevilFruit> delete(DevilFruit fruit) {
+        fruits.removeIf(f -> f.name.contentEquals(fruit.name));
+        return fruits;
+    }
+}
+```
+
+### Testear DELETE con Postman.
+
+Sigue el inicio del anterior , lo que cambiaras el POST por el DELETE, siguiendo el mismo formato , en caso. Ten en cuenta que tendras que eliminar una fruta que exista para ver si funciona.
+
 ### Se esta realizando el curso de OpenWebinars por Alex Soto.
 
 Todos los pasos seguidos se han tomado como referencia del curso y aqui me lo estoy documentando para un futurno no muy lejano cuando me olvide de como se hacia algo y porque más o menos.
